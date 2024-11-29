@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const expYearInput = document.getElementById('year');
 
     const updateExpiryDate = () => {
+        let value = parseInt(expMonthInput.value, 10);
+        if (value > 12) {
+            expMonthInput.value = 12;
+        }
         const month = padWithZeros(expMonthInput.value.replace(/\D/g, ''), 2);
         const year = padWithZeros(expYearInput.value.replace(/\D/g, ''), 2);
         expDateDisplay.textContent = `${month}/${year}`;

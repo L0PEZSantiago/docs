@@ -63,6 +63,7 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .global-card-info>p:first-of-type {
@@ -82,20 +83,16 @@ aside {
 
 .card:last-child {
     background-image: url(images/bg-card-back.png);
-    box-sizing: border-box;
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  
+    color: rgba(255, 255, 255, 0.716);
+    position: relative;
+    padding: 3rem;
 }
 
-.triple-zero {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+.card:last-child p {
+    position: absolute;
+    letter-spacing: 0.1rem;
+    font-size: var(--font-size-card-bottom);;
 }
-
 
 /* FORM */
 
@@ -189,8 +186,12 @@ button {
     letter-spacing: 0.1rem;
     font-size: 0.9rem;
     cursor: pointer;
-    
 }
+
+button:hover {
+    background-image: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+}
+
 
 /* RESPONSIVE DESKTOP */
 
@@ -212,9 +213,6 @@ button {
 
     .card:last-child {
         transform: translateX(50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .card:last-child p {
@@ -224,14 +222,10 @@ button {
     }
 
     
-    .triple-zero {
-        padding-bottom: 0.35rem;
+    .card:last-child p {
         font-size: var(--font-size-card-bottom);
-        width: 80%;
-        height: 11%;
-        display: flex;
-        align-items: flex-start;
-        letter-spacing: 0.1rem;
+        right: 2rem;
+        bottom: 6.15rem;
     }
 
 }
@@ -241,7 +235,7 @@ button {
 @media screen and (max-width: 760px) {
 
     html {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     main {
@@ -275,7 +269,6 @@ button {
         left: 1rem;
         transform: translateY(29%);
         padding: 1.5rem 1.3rem 0.8rem 1.3rem;
-
     }
 
     .global-card-info>p:first-of-type {
@@ -285,16 +278,11 @@ button {
     .cvc input {
         margin: 0;
     }
-
-    .card:last-child {
-        padding: 2.5rem;
-    }
     
-    .triple-zero {
-        padding-bottom: 0.35rem;
-        font-size: var(--font-size-card-bottom);
-        width: 80%;
-        height: 23%;
+    .card:last-child p {
+        right: 2.5rem;
+        bottom: 4.7rem;
+        
     }
 
     .global-card-info {
@@ -303,6 +291,5 @@ button {
         justify-content: center;
         height: 60%;
     }
-
 
 }
