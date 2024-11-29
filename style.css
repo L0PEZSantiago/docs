@@ -2,11 +2,17 @@
     --light-grayish-violet: hsl(270, 3%, 87%);
     --dark-grayish-violet: hsl(279, 6%, 55%);
     --very-dark-violet: hsl(278, 68%, 11%);
+    --font-size-card-bottom: 0.7rem;
+    --font-weight-500: 500;
+    --font-weight-700: 700;
+}
+
+* {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
     background-color: var(--light-grayish-violet);
     display: flex;
     align-items: center;
@@ -33,7 +39,66 @@ aside {
     justify-content: center;
     align-items: flex-end;
     flex-direction: column;
+    gap: 2rem;
 }
+
+/* CARDS */
+
+.card {
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* FRONT CARD */
+
+.card:first-child {
+    background-image: url(images/bg-card-front.png);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.global-card-info>p:first-of-type {
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.15rem;
+    font-size: 1.39rem;
+}
+
+
+.card-info p {
+    font-size: var(--font-size-card-bottom);
+    color: rgba(255, 255, 255, 0.716);
+    letter-spacing: 0.1rem;
+}
+
+/* BACK CARD */
+
+.card:last-child {
+    background-image: url(images/bg-card-back.png);
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  
+}
+
+.triple-zero {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+/* FORM */
+
 
 .form {
     display: flex;
@@ -43,97 +108,145 @@ aside {
     background-color: white;
 }
 
-.card:first-child .card-info {
-    display: flex;
-    justify-content: space-between;
-}
-
-.card:first-child {
-    background-image: url(images/bg-card-front.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1.5rem 1.3rem 0.2rem 1.3rem;
-    height: 11.5rem;
-    width: 21rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-
-.card:last-child {
-    background-image: url(images/bg-card-back.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    padding: 1.5rem;
 }
 
-.form input {
-    border-color: red;
-    border-width: 2px;
-    border-radius: 5px;
-    ;
-    height: 4rem;
+form input {
+    border-color: var(--dark-grayish-violet);
+    opacity: 0.5;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    height: 2.7rem;
     margin-bottom: 1rem;
     padding-left: 1rem;
     color: var(--very-dark-violet);
     font-size: 1rem;
-    font-weight: 500;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.1rem;
+    font-weight: var(--font-weight-500);
     box-sizing: border-box;
+    padding-inline: 0.6rem;
+}
+
+form label {
+    color: var(--very-dark-violet);
+    text-transform: uppercase;
+    font-weight: var(--font-weight-700);
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+}
+
+input::placeholder {
+    color: var(--dark-grayish-violet);
+    font-size: 1rem;
+    font-weight: var(--font-weight-500);
 }
 
 .input-width-100 {
     width: 100%;
 }
 
+/* DATE */
+
 .date-cvc {
     display: flex;
 }
 
+.date {
+    display: flex;
+    flex-direction: column;
+
+}
 
 .date input {
-    width: 3.6rem;
+    width: 4.5rem;
     margin-right: 1rem;
+}
+
+.date input:first-of-type {
+    margin-right: 0.3rem;
+}
+
+/* CVC */
+
+.cvc {
+    display: flex;
+    flex-direction: column;
+  
 }
 
 button {
     width: 100%;
+    margin-top: 1rem;
+    background-color: var(--very-dark-violet);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    height: 3rem;
+    font-weight: var(--font-weight-700);
+    letter-spacing: 0.1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    
 }
 
 /* RESPONSIVE DESKTOP */
 
-@media screen and (min-width: 376px) {
+@media screen and (min-width: 761px) {
     .card {
-        width: 90%;
-        height: 30%;
+        width: 350px;
+        height: 200px;
+        background-size: contain;
     }
 
     .card img {
         width: 60px;
     }
+
+    .card:first-child  {
+        transform: translateX(30%);
+        padding: 1.5rem 2rem 1rem 1.5rem;
+    }
+
+    .card:last-child {
+        transform: translateX(50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card:last-child p {
+        margin: 0;
+        margin-right: 0.7rem;
+        font-weight: var(--font-weight-500);
+    }
+
+    
+    .triple-zero {
+        padding-bottom: 0.35rem;
+        font-size: var(--font-size-card-bottom);
+        width: 80%;
+        height: 11%;
+        display: flex;
+        align-items: flex-start;
+        letter-spacing: 0.1rem;
+    }
+
 }
 
 /* RESPONSIVE MOBILE */
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 760px) {
 
     html {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     main {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 3fr;
+        grid-template-rows: 16.8rem 1fr;
         height: 100%;
         width: 100%;
     }
@@ -145,10 +258,11 @@ button {
     }
 
     .card {
-        color: white;
         background-position: center;
         background-size: contain;
         box-sizing: border-box;
+        height: 11.5rem;
+        width: 20rem;
     }
 
     .card img {
@@ -157,19 +271,30 @@ button {
 
     .card:first-child {
         position: absolute;
-        background-size: contain;
         bottom: 0;
         left: 1rem;
-        transform: translateY(24%);
-        width: 20rem;
+        transform: translateY(29%);
+        padding: 1.5rem 1.3rem 0.8rem 1.3rem;
 
     }
 
-    .card:last-child {
-        width: 20rem;
-        height: 11.5rem;
-        background-size: contain;
+    .global-card-info>p:first-of-type {
+        letter-spacing: 0.1rem;
+    }
 
+    .cvc input {
+        margin: 0;
+    }
+
+    .card:last-child {
+        padding: 2.5rem;
+    }
+    
+    .triple-zero {
+        padding-bottom: 0.35rem;
+        font-size: var(--font-size-card-bottom);
+        width: 80%;
+        height: 23%;
     }
 
     .global-card-info {
@@ -178,35 +303,6 @@ button {
         justify-content: center;
         height: 60%;
     }
-
-    .global-card-info>p:first-of-type {
-        margin-bottom: 0;
-        font-weight: 600;
-        letter-spacing: 0.1rem;
-    }
-
-    .card-info p {
-        font-size: 0.8rem;
-
-        color: rgba(255, 255, 255, 0.716);
-    }
-
-
-    .date {
-        display: flex;
-       flex-direction: column;
-    }
-
-    .cvc {
-        display: flex;
-        flex-direction: column;
-        
-    }
-
-    .cvc input {
-        margin: 0;
-    }
-
 
 
 }
